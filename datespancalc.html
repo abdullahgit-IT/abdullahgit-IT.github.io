@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Date Difference Calculator</title>
+  <style>
+    /* General Page Styling */
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    /* Container */
+    .container {
+      background: white;
+      padding: 25px 30px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 320px;
+    }
+
+    /* Title */
+    h1 {
+      text-align: center;
+      color: #333;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    /* Input fields */
+    input[type="date"], 
+    input[type="text"] {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: border 0.2s;
+    }
+
+    input[type="date"]:focus, 
+    input[type="text"]:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+
+    /* Submit button */
+    input[type="submit"] {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+      margin-top: 10px;
+    }
+
+    input[type="submit"]:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Date Difference Calculator</h1>
+
+    <form name="Form1" onsubmit="return calcDate()">
+      Start Date: <input type="date" name="date1" id="date1"><br>
+      Event Date: <input type="date" name="date2"><br>
+      <input type="text" id="answer" readonly><br>
+      <input type="submit" value="Calculate">
+    </form>
+  </div>
+
+  <script>
+    // Auto-fill today's date in Start Date
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById("date1").value = today;
+
+    function calcDate() {
+      // Input - get the data from the form
+      var date1 = new Date(document.forms["Form1"]["date1"].value);
+      var date2 = new Date(document.forms["Form1"]["date2"].value);
+
+      // Process
+      const diffTime = Math.abs(date2 - date1); // Difference in milliseconds
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); // Convert to days
+
+      // Output
+      if (!isNaN(diffDays)) {
+        document.getElementById("answer").value = "Days till event: " + diffDays + " days";
+      } else {
+        document.getElementById("answer").value = "Please select valid dates.";
+      }
+
+      return false; // stops the page refreshing
+    }
+  </script>
+
+</body>
+</html>
