@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Link Page</title>
+  <style>
+    /* Reset some default styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #141415;
+      color: #0a0202;
+    }
+
+    /* Flex container for nav + content */
+    .container {
+      display: flex;
+      height: 100vh;
+    }
+
+    /* Left navigation bar */
+    nav {
+      width: 220px;
+      background-color: #0c0c0c;
+      display: flex;
+      flex-direction: column;
+      padding-top: 20px;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    }
+
+    nav h1 {
+      color: #0f1010;
+      font-size: 1.5rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+
+    nav a {
+      color: #bdc3c7;
+      text-decoration: none;
+      padding: 12px 20px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      font-weight: 500;
+      border-left: 4px solid transparent;
+    }
+
+    nav a:hover {
+      background-color:#1ae86c;
+      color: #ecf0f1;
+      border-left-color:#1ae86c;
+      cursor: pointer;
+    }
+
+    nav a.active {
+      background-color:#1ae86c;
+      color: white;
+      border-left-color:#1ae86c;
+      font-weight: 700;
+    }
+
+    /* Main content area */
+    main {
+      flex-grow: 1;
+      padding: 40px;
+      background-color: rgb(10, 3, 3);
+      overflow-y: auto;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    main h2 {
+      margin-bottom: 1rem;
+      font-weight: 700;
+      color: #1ae86c;
+    }
+
+    main p {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    main a {
+      color: #1ae86c;
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+
+    main a:hover {
+      border-bottom-color: #1ae86c;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      .container {
+        flex-direction: column;
+      }
+
+      nav {
+        width: 100%;
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 10px 0;
+      }
+
+      nav a {
+        padding: 10px 15px;
+        border-left: none;
+        border-bottom: 4px solid transparent;
+      }
+
+      nav a:hover {
+        border-left: none;
+        border-bottom-color:#1ae86c;
+      }
+
+      nav a.active {
+        border-left: none;
+        border-bottom-color: #1ae86c;
+        
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      
+      <a href="homepage.html">home</a>
+       <a href="contact.html">Contact</a>
+      <a href="portfolio02.html">About me</a>
+      <a href="#" class= active target="_blank">projects</a>
+      
+      
+    </nav>
+
+    <main>
+      <section class="section">
+        <h2>Links</h2>
+        <p>NO1: <a href="datawebsite.html" target="_blank" rel="noopener noreferrer">Temp Trends</a></p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
